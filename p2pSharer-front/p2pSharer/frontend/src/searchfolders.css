@@ -1,0 +1,29 @@
+   div {
+       max-width: 100%;
+       color: black;
+   }
+
+   table {
+       min-width: 100%;
+       background-color: #eeeeee;
+       border: 2px solid;
+       border-collapse: collapse;
+   }
+
+   tr,th,td {
+       border: 1px solid;
+       border-collapse: collapse;
+       padding: 3pt;
+   }
+
+   th {
+       text-align: center;
+       background-color: #dedede;
+   }
+
+   #filetree {
+       white-space: pre;
+       max-height: 300px; 
+       overflow-y: auto;
+       overflow-x: hidden;
+   }

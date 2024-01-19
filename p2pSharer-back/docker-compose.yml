@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+
+  tracker:
+    container_name: trck
+    build:
+      context: .
+      dockerfile: ./cmd/trck/Dockerfile
+    ports:
+      - 8080:8080
+    networks:
+      - shared-network
+    environment:
+      - REDISURI=redis://:testPass@redis:6379
+    depends_on:  
+      - redis
+
+  redis:
+    image: redis
+    container_name: redis
+    restart: always
+    volumes:
+      - "data:/data"
+    ports:
+      - 6379:6379
+    networks:
+      - shared-network
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=testPass
+
+volumes:
+  data:
+
+networks:
+  shared-network:
+    driver: bridge
